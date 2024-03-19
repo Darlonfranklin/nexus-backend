@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  spring-app:
+    image: backend
+    container_name: backend-nexus-container
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    env_file:
+      - ./application.env
+    networks:
+      - internal-network
+    deploy:
+      resources:
+        limits:
+          memory: 2g
+
+  db:
+    image: postgres
+    container_name: postgres-container
+    ports:
+      - "5432:5432"
+    env_file:
+      - ./application.env
+    networks:
+      - internal-network
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          memory: 2g
+
+networks:
+  internal-network:
+    driver: bridge
+
+volumes:
+  postgres-data:

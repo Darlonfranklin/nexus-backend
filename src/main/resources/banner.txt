@@ -1,0 +1,20 @@
+
+NNNNNNNN        NNNNNNNN     EEEEEEEEEEEEEEEEEEEEEE     XXXXXXX       XXXXXXX     UUUUUUUU     UUUUUUUU        SSSSSSSSSSSSSSS
+N:::::::N       N::::::N     E::::::::::::::::::::E     X:::::X       X:::::X     U::::::U     U::::::U      SS:::::::::::::::S
+N::::::::N      N::::::N     E::::::::::::::::::::E     X:::::X       X:::::X     U::::::U     U::::::U     S:::::SSSSSS::::::S
+N:::::::::N     N::::::N     EE::::::EEEEEEEEE::::E     X::::::X     X::::::X     UU:::::U     U:::::UU     S:::::S     SSSSSSS
+N::::::::::N    N::::::N       E:::::E       EEEEEE     XXX:::::X   X:::::XXX      U:::::U     U:::::U      S:::::S
+N:::::::::::N   N::::::N       E:::::E                     X:::::X X:::::X         U:::::D     D:::::U      S:::::S
+N:::::::N::::N  N::::::N       E::::::EEEEEEEEEE            X:::::X:::::X          U:::::D     D:::::U       S::::SSSS
+N::::::N N::::N N::::::N       E:::::::::::::::E             X:::::::::X           U:::::D     D:::::U        SS::::::SSSSS
+N::::::N  N::::N:::::::N       E:::::::::::::::E             X:::::::::X           U:::::D     D:::::U          SSS::::::::SS
+N::::::N   N:::::::::::N       E::::::EEEEEEEEEE            X:::::X:::::X          U:::::D     D:::::U             SSSSSS::::S
+N::::::N    N::::::::::N       E:::::E                     X:::::X X:::::X         U:::::D     D:::::U                  S:::::S
+N::::::N     N:::::::::N       E:::::E       EEEEEE     XXX:::::X   X:::::XXX      U::::::U   U::::::U                  S:::::S
+N::::::N      N::::::::N     EE::::::EEEEEEEE:::::E     X::::::X     X::::::X      U:::::::UUU:::::::U      SSSSSSS     S:::::S
+N::::::N       N:::::::N     E::::::::::::::::::::E     X:::::X       X:::::X       UU:::::::::::::UU       S::::::SSSSSS:::::S
+N::::::N        N::::::N     E::::::::::::::::::::E     X:::::X       X:::::X         UU:::::::::UU         S:::::::::::::::SS
+NNNNNNNN         NNNNNNN     EEEEEEEEEEEEEEEEEEEEEE     XXXXXXX       XXXXXXX           UUUUUUUUU            SSSSSSSSSSSSSSS
+
+
+
