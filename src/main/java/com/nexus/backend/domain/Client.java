@@ -1,4 +1,5 @@
 package com.nexus.backend.domain;
+import com.nexus.backend.domain.dtos.ClientDTO;
 import jakarta.persistence.*;
 
 import java.io.Serial;
@@ -24,6 +25,22 @@ public class Client implements Serializable {
     public Client(Long id, Person person) {
         this.id = id;
         this.person = person;
+    }
+
+    public Client(ClientDTO obj) {
+        this.id = obj.getId();
+        this.person = new Person();
+        this.person.setName(obj.getName());
+        this.person.setCpf(obj.getCpf());
+        this.person.setPhone(obj.getPhone());
+        this.person.setEmail(obj.getEmail());
+        this.person.setCep(obj.getCep());
+        this.person.setStreetName(obj.getStreetName());
+        this.person.setComplement(obj.getComplement());
+        this.person.setNeighborhood(obj.getNeighborhood());
+        this.person.setNumber(obj.getNumber());
+        this.person.setLocality(obj.getLocality());
+        this.person.setUf(obj.getUf());
     }
 
     public Long getId() {

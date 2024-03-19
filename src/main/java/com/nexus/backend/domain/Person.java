@@ -13,12 +13,13 @@ public class Person {
     private String streetName;
     private String complement;
     private String neighborhood;
+    private String number;
     private String locality;
     private String uf;
 
     public Person() {}
 
-    public Person(String name, String cpf, String phone, String email, String cep, String streetName, String complement, String neighborhood, String locality, String uf) {
+    public Person(String name, String cpf, String phone, String email, String cep, String streetName, String complement, String neighborhood, String number, String locality, String uf) {
         this.name = name;
         this.cpf = cpf;
         this.phone = phone;
@@ -27,6 +28,7 @@ public class Person {
         this.streetName = streetName;
         this.complement = complement;
         this.neighborhood = neighborhood;
+        this.number = number;
         this.locality = locality;
         this.uf = uf;
     }
@@ -93,6 +95,14 @@ public class Person {
 
     public void setNeighborhood(String neighborhood) {
         this.neighborhood = neighborhood;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     public String getLocality() {
