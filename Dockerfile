@@ -12,5 +12,5 @@ COPY . .
 # Build the project with Gradle
 RUN gradle build --no-daemon
 
-CMD ["gradle", "bootRun"]
+CMD ["gradle", "build", "bootRun"]
 

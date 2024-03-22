@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -19,6 +21,9 @@ public class Client implements Serializable {
 
     @Embedded
     private Person person;
+
+    @OneToMany(mappedBy = "client")
+    private List<SalesOrder> salesOrders = new ArrayList<>();
 
     public Client() {}
 
@@ -57,6 +62,14 @@ public class Client implements Serializable {
 
     public void setPerson(Person person) {
         this.person = person;
+    }
+
+    public List<SalesOrder> getSalesOrders() {
+        return salesOrders;
+    }
+
+    public void setSalesOrders(List<SalesOrder> salesOrders) {
+        this.salesOrders = salesOrders;
     }
 
     @Override
