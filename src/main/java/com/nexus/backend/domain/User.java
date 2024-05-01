@@ -29,7 +29,7 @@ public class User implements Serializable {
     public User(UserDTO obj) {
         this.id = obj.getId();
         this.username = obj.getUsername();
-        this.password = getPassword();
+        this.password = obj.getPassword();
     }
 
     public Long getId() {

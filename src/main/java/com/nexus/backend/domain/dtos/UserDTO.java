@@ -2,7 +2,6 @@ package com.nexus.backend.domain.dtos;
 
 import com.nexus.backend.domain.User;
 import jakarta.validation.constraints.NotNull;
-
 import java.io.Serial;
 import java.io.Serializable;
 
