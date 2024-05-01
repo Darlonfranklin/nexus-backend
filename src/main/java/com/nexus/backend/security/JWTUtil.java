@@ -28,9 +28,7 @@ public class JWTUtil {
 			Date expirationDate = claims.getExpiration();
 			Date now = new Date(System.currentTimeMillis());
 
-			if (username != null && expirationDate != null && now.before(expirationDate)) {
-				return true;
-			}
+            return username != null && expirationDate != null && now.before(expirationDate);
 		}
 		return false;
 	}
