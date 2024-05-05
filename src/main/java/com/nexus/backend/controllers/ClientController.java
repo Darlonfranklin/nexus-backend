@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value = "/clients")
-@CrossOrigin("*")
 public class ClientController {
 
     @Autowired

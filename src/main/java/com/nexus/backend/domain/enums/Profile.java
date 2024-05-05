@@ -2,10 +2,10 @@ package com.nexus.backend.domain.enums;
 
 public enum Profile {
 
-	ADMIN(0, "ROLE_ADMIN"), CLIENT(1, "ROLE_CLIENT"), TECHNIQUE(2, "ROLE-TECHNIQUE");
+	ADMIN(0, "ROLE_ADMIN");
 
-	private Integer code;
-	private String description;
+	private final Integer code;
+	private final String description;
 
 	private Profile(Integer code, String description) {
 		this.code = code;

@@ -12,7 +12,6 @@ public class UserSS implements UserDetails {
     private final Long id;
     private final String username;
     private final String password;
-    private Collection<? extends GrantedAuthority> authorities;
 
     public UserSS(Long id, String username, String password) {
         this.id = id;
@@ -24,9 +23,13 @@ public class UserSS implements UserDetails {
         return id;
     }
 
+    public Long id() {
+        return id;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return authorities;
+        return null;
     }
 
     @Override

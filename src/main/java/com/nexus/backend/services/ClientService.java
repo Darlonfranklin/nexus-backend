@@ -1,6 +1,5 @@
 package com.nexus.backend.services;
 
-
 import com.nexus.backend.domain.Client;
 import com.nexus.backend.domain.dtos.ClientDTO;
 import com.nexus.backend.repositories.ClientRepository;
@@ -8,7 +7,6 @@ import com.nexus.backend.services.exceptions.ObjectNotFoundException;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 

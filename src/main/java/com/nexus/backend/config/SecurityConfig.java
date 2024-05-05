@@ -1,5 +1,4 @@
 package com.nexus.backend.config;
-
 import com.nexus.backend.security.JWTAuthenticationFilter;
 import com.nexus.backend.security.JWTAuthorizationFilter;
 import com.nexus.backend.security.JWTUtil;
