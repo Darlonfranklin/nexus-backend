@@ -15,6 +15,8 @@ public class ClientDTO implements Serializable {
     protected String name;
     @NotNull(message = "the CPF field is required")
     protected String cpf;
+    @NotNull(message = "the SEXO field is required")
+    protected String sex;
     @NotNull(message = "the PHONE field is required")
     protected String phone;
     @NotNull(message = "the EMAIL field is required")
@@ -34,12 +36,17 @@ public class ClientDTO implements Serializable {
     @NotNull(message = "the UF field is required")
     protected String uf;
 
+    @NotNull(message = "the COUNTRY field is required")
+    protected String country;
+
+
     public ClientDTO() {}
 
     public ClientDTO(Client obj) {
         this.id = obj.getId();
         this.name = obj.getPerson().getName();
         this.cpf = obj.getPerson().getCpf();
+        this.sex = obj.getPerson().getSex();
         this.phone = obj.getPerson().getPhone();
         this.email = obj.getPerson().getEmail();
         this.cep = obj.getPerson().getCep();
@@ -49,6 +56,7 @@ public class ClientDTO implements Serializable {
         this.number = obj.getPerson().getNumber();
         this.locality = obj.getPerson().getLocality();
         this.uf = obj.getPerson().getUf();
+        this.country = obj.getPerson().getCountry();
     }
 
     public Long getId() {
@@ -73,6 +81,14 @@ public class ClientDTO implements Serializable {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
     public String getPhone() {
@@ -145,5 +161,13 @@ public class ClientDTO implements Serializable {
 
     public void setUf(String uf) {
         this.uf = uf;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 }

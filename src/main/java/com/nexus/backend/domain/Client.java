@@ -37,6 +37,7 @@ public class Client implements Serializable {
         this.person = new Person();
         this.person.setName(obj.getName());
         this.person.setCpf(obj.getCpf());
+        this.person.setSex(obj.getSex());
         this.person.setPhone(obj.getPhone());
         this.person.setEmail(obj.getEmail());
         this.person.setCep(obj.getCep());
@@ -46,6 +47,8 @@ public class Client implements Serializable {
         this.person.setNumber(obj.getNumber());
         this.person.setLocality(obj.getLocality());
         this.person.setUf(obj.getUf());
+        this.person.setCountry(obj.getCountry());
+
     }
 
     public Long getId() {

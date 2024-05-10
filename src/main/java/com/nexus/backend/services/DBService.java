@@ -26,7 +26,7 @@ public class DBService {
 	public void instanceDB() {
 
 		Optional<User> existingUser = userRepository.findByUsername("darlon");
-		if (!existingUser.isPresent()) {
+		if (existingUser.isEmpty()) {
 			User user = new User(null, "darlon", encoder.encode("123"));
 			userRepository.save(user);
 		}

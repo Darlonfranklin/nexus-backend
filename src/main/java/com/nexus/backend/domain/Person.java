@@ -7,6 +7,7 @@ public class Person {
 
     private String name;
     private String cpf;
+    private String sex;
     private String phone;
     private String email;
     private String cep;
@@ -17,11 +18,14 @@ public class Person {
     private String locality;
     private String uf;
 
+    private String country;
+
     public Person() {}
 
-    public Person(String name, String cpf, String phone, String email, String cep, String streetName, String complement, String neighborhood, String number, String locality, String uf) {
+    public Person(String name, String cpf, String sex, String phone, String email, String cep, String streetName, String complement, String neighborhood, String number, String locality, String uf, String country) {
         this.name = name;
         this.cpf = cpf;
+        this.sex = sex;
         this.phone = phone;
         this.email = email;
         this.cep = cep;
@@ -31,6 +35,7 @@ public class Person {
         this.number = number;
         this.locality = locality;
         this.uf = uf;
+        this.country = country;
     }
 
     public String getName() {
@@ -49,6 +54,13 @@ public class Person {
         this.cpf = cpf;
     }
 
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
     public String getPhone() {
         return phone;
     }
@@ -119,5 +131,13 @@ public class Person {
 
     public void setUf(String uf) {
         this.uf = uf;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 }
