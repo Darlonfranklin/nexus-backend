@@ -1,14 +1,17 @@
 package com.nexus.backend.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
 @Embeddable
 public class Person {
 
     private String name;
+    @Column(unique = true)
     private String cpf;
     private String sex;
     private String phone;
+    @Column(unique = true)
     private String email;
     private String cep;
     private String streetName;
@@ -17,7 +20,6 @@ public class Person {
     private String number;
     private String locality;
     private String uf;
-
     private String country;
 
     public Person() {}

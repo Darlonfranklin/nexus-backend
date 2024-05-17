@@ -1,7 +1,6 @@
 package com.nexus.backend.domain;
 import com.nexus.backend.domain.dtos.ClientDTO;
 import jakarta.persistence.*;
-
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -35,7 +35,6 @@ public class ClientDTO implements Serializable {
     protected String locality;
     @NotNull(message = "the UF field is required")
     protected String uf;
-
     @NotNull(message = "the COUNTRY field is required")
     protected String country;
 
@@ -166,7 +165,6 @@ public class ClientDTO implements Serializable {
     public String getCountry() {
         return country;
     }
-
     public void setCountry(String country) {
         this.country = country;
     }

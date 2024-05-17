@@ -3,4 +3,11 @@ package com.nexus.backend.repositories;
 import com.nexus.backend.domain.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ClientRepository extends JpaRepository<Client, Long> { }
+import java.util.Optional;
+
+public interface ClientRepository extends JpaRepository<Client, Long> {
+
+    Optional<Client> findByPersonCpf(String cpf);
+
+    Optional<Client> findByPersonEmail(String email);
+}
