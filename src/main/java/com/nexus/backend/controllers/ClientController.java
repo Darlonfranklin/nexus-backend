@@ -3,11 +3,17 @@ import com.nexus.backend.domain.Client;
 import com.nexus.backend.domain.dtos.ClientDTO;
 import com.nexus.backend.services.ClientService;
 import jakarta.validation.Valid;
+import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import java.io.IOException;
 import java.net.URI;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,7 +23,6 @@ public class ClientController {
 
     @Autowired
     private ClientService service;
-
     @PostMapping
     public ResponseEntity<ClientDTO> create(@Valid @RequestBody ClientDTO objDTO) {
         Client newObj = service.create(objDTO);
@@ -48,6 +53,19 @@ public class ClientController {
     public ResponseEntity<ClientDTO> delete(@PathVariable Long id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping(value = "/relatorio/{id}")
+    public ResponseEntity<byte[]> generateReport(@PathVariable int id) throws JRException, SQLException, IOException {
+        byte[] relatorioBytes = service.generateReport(id).readAllBytes();
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Disposition", "inline; filename=relatorio-cliente.pdf");
+
+        return ResponseEntity.ok()
+                .headers(headers)
+                .contentType(MediaType.APPLICATION_PDF)
+                .body(relatorioBytes);
     }
 
 }

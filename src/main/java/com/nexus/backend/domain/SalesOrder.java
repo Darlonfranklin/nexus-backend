@@ -2,10 +2,8 @@ package com.nexus.backend.domain;
 
 import com.nexus.backend.domain.dtos.SalesOrderDTO;
 import jakarta.persistence.*;
-
 import java.io.Serial;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -46,7 +44,8 @@ public class SalesOrder implements Serializable {
         this.sales.setTotalValue(obj.getTotalValue());
     }
 
-    public SalesOrder() { }
+    public SalesOrder() {
+    }
 
     public Long getId() {
         return id;
@@ -82,8 +81,10 @@ public class SalesOrder implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         SalesOrder that = (SalesOrder) o;
         return Objects.equals(id, that.id);
     }

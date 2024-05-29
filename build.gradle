@@ -13,6 +13,7 @@ java {
 
 repositories {
 	mavenCentral()
+	maven { url 'https://jitpack.io' }
 }
 
 dependencies {
@@ -22,11 +23,13 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'io.jsonwebtoken:jjwt:0.7.0'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'net.sf.jasperreports:jasperreports:6.18.1'
+	implementation 'org.springframework:spring-context-support'
+	implementation 'com.lowagie:itext:2.1.7'
 	implementation 'javax.xml.bind:jaxb-api:2.3.1'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 test {
 	exclude '**/*IntegrationTest.*'
 }
-
