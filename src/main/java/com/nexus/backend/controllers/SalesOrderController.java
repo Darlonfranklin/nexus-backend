@@ -1,11 +1,6 @@
 package com.nexus.backend.controllers;
-
-import com.nexus.backend.domain.Client;
-import com.nexus.backend.domain.Product;
 import com.nexus.backend.domain.SalesOrder;
 import com.nexus.backend.domain.dtos.SalesOrderDTO;
-import com.nexus.backend.services.ClientService;
-import com.nexus.backend.services.ProductService;
 import com.nexus.backend.services.SalesOrderService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +14,6 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value = "/sales-order")
-@CrossOrigin("*")
 public class SalesOrderController {
 
     @Autowired

@@ -1,19 +1,14 @@
 package com.nexus.backend.services;
-
 import com.nexus.backend.domain.Client;
 import com.nexus.backend.domain.Product;
 import com.nexus.backend.domain.Sales;
 import com.nexus.backend.domain.SalesOrder;
-import com.nexus.backend.domain.dtos.ClientDTO;
 import com.nexus.backend.domain.dtos.SalesOrderDTO;
-import com.nexus.backend.repositories.ClientRepository;
 import com.nexus.backend.repositories.SalesOrderRepository;
 import com.nexus.backend.services.exceptions.ObjectNotFoundException;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 
@@ -50,7 +45,7 @@ public class SalesOrderService {
     }
 
     public void delete(Long id) {
-        SalesOrder obj = findById(id);
+        findById(id);
         repository.deleteById(id);
     }
 

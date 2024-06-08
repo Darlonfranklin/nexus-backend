@@ -10,7 +10,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import java.io.IOException;
 import java.net.URI;
 import java.sql.SQLException;
@@ -23,6 +22,7 @@ public class ClientController {
 
     @Autowired
     private ClientService service;
+
     @PostMapping
     public ResponseEntity<ClientDTO> create(@Valid @RequestBody ClientDTO objDTO) {
         Client newObj = service.create(objDTO);

@@ -57,7 +57,7 @@ public class ClientService {
     }
 
     public void delete(Long id) {
-        Client obj = findById(id);
+        findById(id);
         repository.deleteById(id);
     }
 
