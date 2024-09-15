@@ -16,12 +16,15 @@ public class UserDTO implements Serializable {
     @NotNull(message = "the PASSWORD field is required")
     protected String password;
 
+    private boolean active = true;
+
     public UserDTO() {}
 
     public UserDTO(User obj) {
         this.id = obj.getId();
         this.username = obj.getUsername();
         this.password = obj.getPassword();
+        this.active = obj.getActive();
     }
 
     public Long getId() {
@@ -46,5 +49,13 @@ public class UserDTO implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }

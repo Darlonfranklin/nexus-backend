@@ -17,13 +17,15 @@ public class User implements Serializable {
 
     private String username;
     private String password;
+    private boolean active;
 
     public User() {}
 
-    public User(Long id, String username, String password) {
+    public User(Long id, String username, String password, boolean active) {
         this.id = id;
         this.username = username;
         this.password = password;
+        this.active = active;
     }
 
     public User(UserDTO obj) {
@@ -54,5 +56,13 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean getActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }

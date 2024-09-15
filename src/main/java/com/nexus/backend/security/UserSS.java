@@ -1,8 +1,10 @@
 package com.nexus.backend.security;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import java.io.Serial;
 import java.util.Collection;
+import java.util.Collections;
 
 public class UserSS implements UserDetails {
 
@@ -12,24 +14,22 @@ public class UserSS implements UserDetails {
     private final Long id;
     private final String username;
     private final String password;
+    private final boolean active;
 
-    public UserSS(Long id, String username, String password) {
+    public UserSS(Long id, String username, String password, boolean active) {
         this.id = id;
         this.username = username;
         this.password = password;
+        this.active = active;
     }
 
     public Long getId() {
         return id;
     }
 
-    public Long id() {
-        return id;
-    }
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return Collections.emptyList();
     }
 
     @Override
@@ -49,17 +49,16 @@ public class UserSS implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return true; 
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true;
+        return true; 
     }
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return active;
     }
-
 }

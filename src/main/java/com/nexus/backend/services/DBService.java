@@ -21,12 +21,16 @@ public class DBService {
 	@PostConstruct
 	public void instanceDB() {
 
+		String username = "darlon";
+		String password = "123";
+
 		Optional<User> existingUser = userRepository.findByUsername("darlon");
 		if (existingUser.isEmpty()) {
-			User user = new User(null, "darlon", encoder.encode("123"));
-			userRepository.save(user);
+			User user = new User();
+            user.setUsername(username);
+            user.setPassword(encoder.encode(password)); 
+            user.setActive(true); 
+            userRepository.save(user);
 		}
 	}
-
-
 }

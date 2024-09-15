@@ -1,4 +1,5 @@
 package com.nexus.backend.services;
+
 import com.nexus.backend.domain.User;
 import com.nexus.backend.repositories.UserRepository;
 import com.nexus.backend.security.UserSS;
@@ -10,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
@@ -21,9 +21,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Optional<User> userOptional = userRepository.findByUsername(username);
 		if (userOptional.isPresent()) {
-			return new UserSS(userOptional.get().getId(), userOptional.get().getUsername(), userOptional.get().getPassword());
+			return new UserSS(userOptional.get().getId(), userOptional.get().getUsername(),
+					userOptional.get().getPassword(), userOptional.get().getActive());
+		} else {
+			throw new UsernameNotFoundException("User is inactive: " + username);
 		}
-		throw new UsernameNotFoundException(username);
 	}
-
 }
