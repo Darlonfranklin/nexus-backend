@@ -1,45 +1,66 @@
 package com.nexus.backend.repositories;
+
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.fail;
+
 import com.nexus.backend.domain.Client;
-import com.nexus.backend.domain.dtos.ClientDTO;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
-@DataJpaTest
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+
+@SpringBootTest
 public class ClientRepositoryTest {
 
     @Autowired
     private ClientRepository clientRepository;
 
-    private ClientDTO clientDTO;
+    @Autowired
+    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
-    @BeforeEach
-    public void setUp() {
-        clientDTO = new ClientDTO();
-        clientDTO.setName("John Doe");
-        clientDTO.setCpf("123.456.789-00");
-        clientDTO.setSex("M");
-        clientDTO.setPhone("(11) 98765-4321");
-        clientDTO.setEmail("johndoe@example.com");
-        clientDTO.setCep("12345-678");
-        clientDTO.setStreetName("Main Street");
-        clientDTO.setComplement("Apt 101");
-        clientDTO.setNeighborhood("Central");
-        clientDTO.setNumber("123");
-        clientDTO.setLocality("New York");
-        clientDTO.setUf("NY");
-        clientDTO.setCountry("USA");
+    @Test
+    @DisplayName("CHECK ID IN DATABASE ✅")
+    public void testFindById() {
+        try {
+            Long expectedId = 1L;
+            String sql = "SELECT id FROM tb_client WHERE id = :id";
+            Map<String, Object> params = new HashMap<>();
+            params.put("id", expectedId);
+            Long actualId;
+            actualId = namedParameterJdbcTemplate.queryForObject(sql, params, Long.class);
+            assertThat(actualId).isEqualTo(expectedId);
+            Optional<Client> clientOptional = clientRepository.findById(expectedId);
+            assertThat(clientOptional).isPresent();
+            assertThat(clientOptional.get().getId()).isEqualTo(expectedId);
+            assertThat(clientOptional.get().getPerson().getName()).isEqualTo("John Doe");
+        } catch (Exception e) {
+            fail("Id not found in the database");
+        }
     }
 
     @Test
-    public void testSaveClient() {
-        Client client = new Client(clientDTO);
-        Client savedClient = clientRepository.save(client);
-        assertThat(savedClient).isNotNull();
-        assertThat(savedClient.getId()).isGreaterThan(0);
-        assertThat(savedClient.getPerson().getName()).isEqualTo(clientDTO.getName());
-        assertThat(savedClient.getPerson().getCpf()).isEqualTo(clientDTO.getCpf());
+    @DisplayName("CHECK CPF IN DATABASE ✅")
+    public void testFindByCpf() {
+        try {
+            String expectedCpf = "987.654.321-00";
+            String sql = "SELECT cpf FROM tb_client WHERE cpf = :cpf";
+            Map<String, Object> params = new HashMap<>();
+            params.put("cpf", expectedCpf);
+            String actualCpf = namedParameterJdbcTemplate.queryForObject(sql, params, String.class);
+            assertThat(actualCpf).isNotNull();
+            Optional<Client> foundClient = clientRepository.findByPersonCpf(expectedCpf);
+            assertThat(foundClient).isPresent();
+            foundClient.ifPresent(client -> {
+                assertThat(client.getPerson().getName()).isEqualTo("John Doe");
+            });
+        } catch (Exception e) {
+            fail("CPF not found in the database");
+        }
     }
 }
+
