@@ -41,25 +41,19 @@ public class SecurityConfig {
         AuthenticationManagerBuilder authenticationManagerBuilder = http.getSharedObject(AuthenticationManagerBuilder.class);
         authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
         AuthenticationManager authenticationManager = authenticationManagerBuilder.build();
-        http
-                .cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
+        http.cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
                 .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(authz -> authz
-                        .anyRequest().authenticated()
-                )
+                .authorizeHttpRequests(authz -> authz.anyRequest().authenticated())
                 .addFilter(new JWTAuthenticationFilter(authenticationManager, jwtUtil))
                 .addFilter(new JWTAuthorizationFilter(authenticationManager, jwtUtil, userDetailsService))
                 .authenticationManager(authenticationManager)
-                .sessionManagement(session -> session
-                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         return http.build();
     }
 
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return web -> web.ignoring().requestMatchers(
-                new AntPathRequestMatcher("/h2-console/**")
-        );
+        return web -> web.ignoring().requestMatchers(new AntPathRequestMatcher("/h2-console/**"));
     }
 
     @Bean

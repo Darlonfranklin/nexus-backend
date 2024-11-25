@@ -86,7 +86,6 @@
 			</staticText>
 			<image>
 				<reportElement x="-5" y="-10" width="116" height="47" uuid="52608690-55ff-4036-805c-4245ecde1301"/>
-				<imageExpression><![CDATA["C:/Users/Darlon Franklin/Downloads/header.png"]]></imageExpression>
 			</image>
 			<line>
 				<reportElement positionType="FixRelativeToBottom" x="-10" y="69" width="568" height="1" uuid="544e89f7-0fd1-4142-aa23-e335e3be7007"/>

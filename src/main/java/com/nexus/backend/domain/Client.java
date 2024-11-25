@@ -24,7 +24,7 @@ public class Client implements Serializable {
     @OneToMany(mappedBy = "client")
     private List<SalesOrder> salesOrders = new ArrayList<>();
 
-    public Client() {}
+    public Client() { }
 
     public Client(Long id, Person person) {
         this.id = id;
@@ -47,7 +47,6 @@ public class Client implements Serializable {
         this.person.setLocality(obj.getLocality());
         this.person.setUf(obj.getUf());
         this.person.setCountry(obj.getCountry());
-
     }
 
     public Long getId() {

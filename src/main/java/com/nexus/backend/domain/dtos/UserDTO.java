@@ -18,7 +18,7 @@ public class UserDTO implements Serializable {
 
     private boolean active = true;
 
-    public UserDTO() {}
+    public UserDTO() { }
 
     public UserDTO(User obj) {
         this.id = obj.getId();

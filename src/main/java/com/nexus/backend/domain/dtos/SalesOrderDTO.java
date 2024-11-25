@@ -26,7 +26,7 @@ public class SalesOrderDTO implements Serializable {
     private String clientName;
     private String productName;
 
-    public SalesOrderDTO() {}
+    public SalesOrderDTO() { }
 
     public SalesOrderDTO(SalesOrder obj) {
         this.id = obj.getId();

@@ -38,8 +38,7 @@ public class ClientDTO implements Serializable {
     @NotNull(message = "the COUNTRY field is required")
     protected String country;
 
-
-    public ClientDTO() {}
+    public ClientDTO() { }
 
     public ClientDTO(Client obj) {
         this.id = obj.getId();
@@ -165,8 +164,8 @@ public class ClientDTO implements Serializable {
     public String getCountry() {
         return country;
     }
+
     public void setCountry(String country) {
         this.country = country;
     }
-
 }

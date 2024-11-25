@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ValidationError extends StandardError {
+
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -25,5 +26,4 @@ public class ValidationError extends StandardError {
     public void addError(String fieldName, String message) {
         this.errors.add(new FieldMessage(fieldName, message));
     }
-
 }

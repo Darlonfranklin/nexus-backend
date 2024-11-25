@@ -1,5 +1,4 @@
 package com.nexus.backend.services;
-
 import com.nexus.backend.domain.User;
 import com.nexus.backend.repositories.UserRepository;
 import com.nexus.backend.security.UserSS;
@@ -8,7 +7,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
 import java.util.Optional;
 
 @Service
